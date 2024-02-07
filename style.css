@@ -1,0 +1,10 @@
+.calcContainer {
+    width: 100%;
+}
+
+.highline {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

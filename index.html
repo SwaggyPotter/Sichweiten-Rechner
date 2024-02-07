@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sichweiten-/Bremswegrechner</title>
+</head>
+
+<body>
+    <h1 class="highline">Sichweitenrechner</h1>
+    <div id="calcContainer" class="calcContainer">
+        <select name="line" id="undergroundLine">
+            <option value="0">Linie wählen</option>
+            <option value="U1">U1</option>
+            <option value="U2">U2</option>
+            <option value="U3">U3</option>
+            <option value="U4">U4</option>
+            <option value="U5">U5</option>
+            <option value="U6">U6</option>
+            <option value="U7">U7</option>
+            <option value="U8">U8</option>
+            <option value="U9">U9</option>
+        </select>
+        <select name="stationSelector" id="stSelector">
+        </select>
+        <select name="trackSelector" id="trSelector">
+            <option value="0">Gleis wählen</option>
+            <option value="GL1">Gleis 1</option>
+            <option value="GL2">Gleis 2</option>
+        </select>
+        <select name="groupSelector" id="GrpSelector">
+            <option value="0">Arbeitsgruppe wählen</option>
+            <option value="Kg">Kleingruppe</option>
+            <option value="Ag">Arbeitsgruppe</option>
+        </select>
+        <select name="clearTimeSelector" id="CTSelector">
+            <option value="0">Räumzeit wählen (Unhandliche Maschienen)</option>
+            <option value="7">7s</option>
+            <option value="10">10s</option>
+            <option value="15">15s</option>
+            <option value="20">20s</option>
+        </select>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>
