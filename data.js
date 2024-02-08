@@ -232,4 +232,20 @@ let u9 = {
     'Np-Plo': { 'GL1': 'G2', 'GL2': 'G1', 'GES': '70' }
 }
 
+/**
+ * Mögliche geschwindigkeit der Züge
+ */
+let speed = [15, 25, 40, 50, 60, 70]
+/**
+ * Arbeitgruppe, Gefälleklasse 1, Räumzeit: 10 Sekunden
+ */
+let AGG110 = [70, 120, 210, 290, 370, 460]
+/**
+ * Arbeitgruppe, Gefälleklasse 1, Räumzeit: 20 Sekunden
+ */
+let AGG120 = [120, 200, 340, 440, 560, 690]
 
+/**
+ * 
+ */
+let AGG210 = []
