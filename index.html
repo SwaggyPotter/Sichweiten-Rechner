@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Sichweiten-/Bremswegrechner</title>
+    <title>Sichweitenermittler</title>
 </head>
 
 <body>
-    <h1 class="highline">Sichweitenrechner</h1>
+    <h1 class="highline">Sichweitenermittler</h1>
     <div id="calcContainer" class="calcContainer">
         <select name="line" id="undergroundLine">
             <option value="0">Linie wählen</option>
@@ -46,6 +46,20 @@
         <button onclick="calcView()">Berechnen</button>
     </div>
     <h1 id="viewPoint"></h1>
+    <div class="speedContainer">
+        <div id="setSpeed">
+            <input type="range" id="tempB" name="temp" list="values" />
+            <datalist id="values">
+                <option value="100" label="70"></option>
+                <option value="84" label="60"></option>
+                <option value="68" label="50"></option>
+                <option value="52" label="40"></option>
+                <option value="36" label="25"></option>
+                <option value="16" label="15"></option>
+                <option value="0" label="0"></option>
+            </datalist>
+        </div>
+    </div>
 </body>
 <script src="data.js"></script>
 <script src="script.js"></script>

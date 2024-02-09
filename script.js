@@ -15,6 +15,9 @@ undergroundLine.addEventListener('click', () => {
 })
 
 
+/**
+ * Lädt die Banhöfe in kürzeln je nach ausgewählter linie
+ */
 stationChooser.addEventListener('click', () => {
     if (lineList.value == 'U1') {
         lineData = u1[`${stSelector.value}`]
@@ -45,7 +48,9 @@ stationChooser.addEventListener('click', () => {
     }
 })
 
-
+/**
+ * Lädt anhand der Daten die Erforderliche Sichtweite
+ */
 function calcView() {
     let group = document.getElementById('GrpSelector').value
     let time = document.getElementById('CTSelector').value
@@ -55,10 +60,13 @@ function calcView() {
     trackspeed = lineData['GES']
     let viewPointPosition = speed.indexOf(Number(trackspeed))
     let view = views[viewCode][viewPointPosition]
-    document.getElementById('viewPoint').innerText = `Die Sichtweite beträgt: ${view}m`
+    document.getElementById('viewPoint').innerText = `Die erforderliche Sichtweite beträgt: ${view}m`
 }
 
 
+/**
+ * Lädt die Bahnhof namen auf der Strecke
+ */
 function chooseLine() {
     if (lineList.value == 'U1') {
         loadUndergroundLine(u1Names)
@@ -90,8 +98,8 @@ function chooseLine() {
 }
 
 /**
- * Fill the 
- * @param {string} lineNames line name U1,U2,U3.....
+ * Füllt die Auswahl mit namen der Bahnhöfe 
+ * @param {string} lineNames Linien Name U1,U2,U3.....
  */
 function loadUndergroundLine(lineNames) {
     document.getElementById('stSelector').innerHTML = ''

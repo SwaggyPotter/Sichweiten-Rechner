@@ -8,3 +8,32 @@
     justify-content: center;
     align-items: center;
 }
+
+datalist {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    writing-mode: sideways-rl;
+}
+
+option {
+    padding: 0;
+}
+
+input[type="range"] {
+    width: 30px;
+    margin: 0;
+    appearance: slider-vertical;
+}
+
+#setSpeed{
+    display: flex;
+    flex-direction: row;
+}
+
+.speedContainer{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    display: none;
+}
