@@ -1,6 +1,9 @@
 let lineList = document.getElementById('undergroundLine')
 let choosenLineCounter = 0;
 let stationChooser = document.getElementById('stSelector')
+let choosenSpeed
+let trackspeed
+let lineData
 
 /*Event listener*/
 /**
@@ -10,6 +13,7 @@ let undergroundLine = document.getElementById('undergroundLine')
 undergroundLine.addEventListener('click', () => {
     chooseLine()
 })
+
 
 stationChooser.addEventListener('click', () => {
     if (lineList.value == 'U1') {
@@ -41,15 +45,17 @@ stationChooser.addEventListener('click', () => {
     }
 })
 
-let choosenSpeed
-let lineData
+
 function calcView() {
     let group = document.getElementById('GrpSelector').value
     let time = document.getElementById('CTSelector').value
     let track = document.getElementById('trSelector').value
     let gradient = lineData[track]
     let viewCode = group + gradient + time
-    console.log(views[viewCode])
+    trackspeed = lineData['GES']
+    let viewPointPosition = speed.indexOf(Number(trackspeed))
+    let view = views[viewCode][viewPointPosition]
+    document.getElementById('viewPoint').innerText = `Die Sichtweite beträgt: ${view}m`
 }
 
 
@@ -83,7 +89,10 @@ function chooseLine() {
     }
 }
 
-
+/**
+ * Fill the 
+ * @param {string} lineNames line name U1,U2,U3.....
+ */
 function loadUndergroundLine(lineNames) {
     document.getElementById('stSelector').innerHTML = ''
     document.getElementById('stSelector').innerHTML += `<option value="0">Bahnhof wählen</option>`
