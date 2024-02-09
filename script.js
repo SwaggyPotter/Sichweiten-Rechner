@@ -13,33 +13,44 @@ undergroundLine.addEventListener('click', () => {
 
 stationChooser.addEventListener('click', () => {
     if (lineList.value == 'U1') {
-        console.log(u1[`${stSelector.value}`])
+        lineData = u1[`${stSelector.value}`]
     }
     if (lineList.value == 'U2') {
-        console.log(u2[`${stSelector.value}`])
+        lineData = u2[`${stSelector.value}`]
     }
     if (lineList.value == 'U3') {
-        console.log(u3[`${stSelector.value}`])
+        lineData = u3[`${stSelector.value}`]
     }
     if (lineList.value == 'U4') {
-        console.log(u4[`${stSelector.value}`])
+        lineData = u4[`${stSelector.value}`]
     }
     if (lineList.value == 'U5') {
-        console.log(u5[`${stSelector.value}`])
+        lineData = u5[`${stSelector.value}`]
     }
     if (lineList.value == 'U6') {
-        console.log(u6[`${stSelector.value}`])
+        lineData = u6[`${stSelector.value}`]
     }
     if (lineList.value == 'U7') {
-        console.log(u7[`${stSelector.value}`])
+        lineData = u7[`${stSelector.value}`]
     }
     if (lineList.value == 'U8') {
-        console.log(u8[`${stSelector.value}`])
+        lineData = u8[`${stSelector.value}`]
     }
     if (lineList.value == 'U9') {
-        console.log(u9[`${stSelector.value}`])
+        lineData = u9[`${stSelector.value}`]
     }
 })
+
+let choosenSpeed
+let lineData
+function calcView() {
+    let group = document.getElementById('GrpSelector').value
+    let time = document.getElementById('CTSelector').value
+    let track = document.getElementById('trSelector').value
+    let gradient = lineData[track]
+    let viewCode = group + gradient + time
+    console.log(views[viewCode])
+}
 
 
 function chooseLine() {

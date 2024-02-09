@@ -233,19 +233,36 @@ let u9 = {
 }
 
 /**
- * Mögliche geschwindigkeit der Züge
+ * Mögliche geschwindigkeiten der Züge
  */
 let speed = [15, 25, 40, 50, 60, 70]
-/**
- * Arbeitgruppe, Gefälleklasse 1, Räumzeit: 10 Sekunden
- */
-let AGG110 = [70, 120, 210, 290, 370, 460]
-/**
- * Arbeitgruppe, Gefälleklasse 1, Räumzeit: 20 Sekunden
- */
-let AGG120 = [120, 200, 340, 440, 560, 690]
 
-/**
- * 
- */
-let AGG210 = []
+let views = {
+    /**
+    * Arbeitgruppe, Gefälleklasse 1, Räumzeit: 10 Sekunden
+    */
+    'AGG110': [70, 120, 210, 290, 370, 460],
+    /**
+     * Arbeitgruppe, Gefälleklasse 1, Räumzeit: 20 Sekunden
+     */
+    'AGG120': [120, 200, 340, 440, 560, 690],
+    /**
+    * Arbeitgruppe, Gefälleklasse 2, Räumzeit: 10 Sekunden
+    */
+    'AGG210': [70, 130, 230, 310, 400, 490],
+    /**
+     * Arbeitgruppe, Gefälleklasse 2, Räumzeit: 20 Sekunden
+     */
+    'AGG220': [120, 200, 340, 440, 560, 690],
+    /**
+     * Arbeitgruppe, Gefälleklasse 3, Räumzeit: 10 Sekunden
+     */
+    'AGG310': [80, 140, 250, 350, 450, 570],
+    /**
+     * Arbeitgruppe, Gefälleklasse 3, Räumzeit: 20 Sekunden
+     */
+    'AGG320': [120, 210, 360, 480, 620, 770],
+}
+
+
+
