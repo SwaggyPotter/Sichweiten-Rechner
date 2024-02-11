@@ -4,16 +4,36 @@ let stationChooser = document.getElementById('stSelector')
 let choosenSpeed
 let trackspeed
 let lineData
+let groupSelector = document.getElementById('GrpSelector')
+let setableSpeed = document.getElementById('speedRange')
 
 /*Event listener*/
 /**
  * Eventlistener zur auswahl der U-Bahn linie
  */
 let undergroundLine = document.getElementById('undergroundLine')
-undergroundLine.addEventListener('click', () => {
-    chooseLine()
-})
+undergroundLine.addEventListener('click', () => { chooseLine() }, false)
 
+/**
+ * Ändert bei auswahl der Arbeitsgruppe die Räumzeit
+ */
+groupSelector.addEventListener('click', () => {
+    if (groupSelector.value == 'AG') {
+        document.getElementById('CTSelector').innerHTML = `
+            <option value="0">Räumzeit wählen</option>
+            <option value="10">10s</option>
+            <option value="20">20s</option>`
+    }
+    else if (groupSelector.value == 'KG') {
+        document.getElementById('CTSelector').innerHTML = `
+            <option value="0">Räumzeit wählen</option>
+            <option value="7">7s</option>
+            <option value="10">10s</option>
+            <option value="15">15s</option>
+            <option value="20">20s</option>
+        `
+    }
+}, false)
 
 /**
  * Lädt die Banhöfe in kürzeln je nach ausgewählter linie
@@ -46,7 +66,8 @@ stationChooser.addEventListener('click', () => {
     if (lineList.value == 'U9') {
         lineData = u9[`${stSelector.value}`]
     }
-})
+}, false)
+
 
 /**
  * Lädt anhand der Daten die Erforderliche Sichtweite
@@ -61,6 +82,8 @@ function calcView() {
     let viewPointPosition = speed.indexOf(Number(trackspeed))
     let view = views[viewCode][viewPointPosition]
     document.getElementById('viewPoint').innerText = `Die erforderliche Sichtweite beträgt: ${view}m`
+    document.getElementById('speedContainer').style.display = 'flex'
+    setableSpeed = document.getElementById('speedRange')
 }
 
 
@@ -96,6 +119,7 @@ function chooseLine() {
         loadUndergroundLine(u9Names)
     }
 }
+
 
 /**
  * Füllt die Auswahl mit namen der Bahnhöfe 
