@@ -13,7 +13,6 @@ let setableSpeed = document.getElementById('speedRange')
  */
 let undergroundLine = document.getElementById('undergroundLine')
 undergroundLine.addEventListener('click', () => { chooseLine() }, false)
-
 /**
  * Ändert bei auswahl der Arbeitsgruppe die Räumzeit
  */
@@ -34,6 +33,7 @@ groupSelector.addEventListener('click', () => {
         `
     }
 }, false)
+
 
 /**
  * Lädt die Banhöfe in kürzeln je nach ausgewählter linie
@@ -131,5 +131,26 @@ function loadUndergroundLine(lineNames) {
     for (let i = 0; i < lineNames.length; i++) {
         const element = lineNames[i];
         document.getElementById('stSelector').innerHTML += `<option value="${lineNames[i]}">${lineNames[i]}</option>`
+    }
+}
+
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function (event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
     }
 }
