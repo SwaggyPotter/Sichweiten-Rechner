@@ -12,28 +12,25 @@
 <body>
     <h1 class="highline">Sichweitenermittler</h1>
     <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-        <div id="myDropdown" class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+        <button id="lineDropDownBtn" onclick="openDropDownLine()" class="dropbtn">Linie Auswählen</button>
+        <div id="lineChoose" class="dropdown-content">
+            <p onclick="chooseLine('U1')">U1</p>
+            <p onclick="chooseLine('U2')">U2</p>
+            <p onclick="chooseLine('U3')">U3</p>
+            <p onclick="chooseLine('U4')">U4</p>
+            <p onclick="chooseLine('U5')">U5</p>
+            <p onclick="chooseLine('U6')">U6</p>
+            <p onclick="chooseLine('U7')">U7</p>
+            <p onclick="chooseLine('U8')">U8</p>
+            <p onclick="chooseLine('U9')">U9</p>
         </div>
     </div>
     <div id="calcContainer" class="calcContainer">
-        <select name="line" id="undergroundLine">
-            <option value="0">Linie wählen</option>
-            <option value="U1">U1</option>
-            <option value="U2">U2</option>
-            <option value="U3">U3</option>
-            <option value="U4">U4</option>
-            <option value="U5">U5</option>
-            <option value="U6">U6</option>
-            <option value="U7">U7</option>
-            <option value="U8">U8</option>
-            <option value="U9">U9</option>
-        </select>
-        <select name="stationSelector" id="stSelector">
-        </select>
+        <div class="dropdown">
+            <button id="stationDropdownBtn" onclick="openDropDownStation()" class="dropbtn">Stationen</button>
+            <div id="station" class="dropdown-content">
+            </div>
+        </div>
         <select name="trackSelector" id="trSelector">
             <option value="0">Gleis wählen</option>
             <option value="GL1">Gleis 1</option>
