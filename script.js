@@ -11,7 +11,7 @@ let lineDropDownBtn = document.getElementById('lineDropDownBtn')
 
 /**
  * Ändert bei auswahl der Arbeitsgruppe die Räumzeit
- */
+ 
 groupSelector.addEventListener('click', () => {
     if (groupSelector.value == 'AG') {
         document.getElementById('CTSelector').innerHTML = `
@@ -29,6 +29,7 @@ groupSelector.addEventListener('click', () => {
         `
     }
 }, false)
+*/
 
 let stationBtn = document.getElementById('stationDropdownBtn')
 /**
@@ -69,13 +70,33 @@ function stationChoosed(station) {
 let group
 let time
 let track
+
+
+function chooseGroup(chGroup) {
+    if (chGroup == "KG") {
+        document.getElementById('groupChoosen').innerText = "Kleingruppe"
+    }
+    else if (chGroup == "AG") {
+        document.getElementById('groupChoosen').innerText = "Arbeitsgruppe"
+    }
+    group = chGroup
+}
+
+
+function chooseTrack(x) {
+    if (x == "GL1") {
+        document.getElementById('trackBTN').innerText = "Gleis 1"
+    }
+    else if (x == "GL2") {
+        document.getElementById('trackBTN').innerText = "Gleis 2"
+    }
+    track = x
+}
 /**
  * Lädt anhand der Daten die Erforderliche Sichtweite
  */
 function calcView() {
-    group = document.getElementById('GrpSelector').value
     time = document.getElementById('CTSelector').value
-    track = document.getElementById('trSelector').value
     let gradient = lineData[track]
     let viewCode = group + gradient + time
     trackspeed = lineData['GES']
@@ -145,6 +166,20 @@ function openDropDownLine() {
 
 function openDropDownStation() {
     document.getElementById("station").classList.toggle("show");
+}
+
+
+function openDropDownTrack() {
+    document.getElementById("track").classList.toggle("show");
+}
+
+
+function openDropDownGroup() {
+    document.getElementById("group").classList.toggle("show");
+}
+
+function openDropDownTime() {
+    document.getElementById("timeChoose").classList.toggle("show");
 }
 
 // Close the dropdown menu if the user clicks outside of it
