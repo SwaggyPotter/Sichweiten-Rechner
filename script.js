@@ -8,29 +8,6 @@ let groupSelector = document.getElementById('GrpSelector')
 let setableSpeed = document.getElementById('speedRange')
 let lineDropDownBtn = document.getElementById('lineDropDownBtn')
 
-
-/**
- * Ändert bei auswahl der Arbeitsgruppe die Räumzeit
- 
-groupSelector.addEventListener('click', () => {
-    if (groupSelector.value == 'AG') {
-        document.getElementById('CTSelector').innerHTML = `
-            <option value="0">Räumzeit wählen</option>
-            <option value="10">10s</option>
-            <option value="20">20s</option>`
-    }
-    else if (groupSelector.value == 'KG') {
-        document.getElementById('CTSelector').innerHTML = `
-            <option value="0">Räumzeit wählen</option>
-            <option value="7">7s</option>
-            <option value="10">10s</option>
-            <option value="15">15s</option>
-            <option value="20">20s</option>
-        `
-    }
-}, false)
-*/
-
 let stationBtn = document.getElementById('stationDropdownBtn')
 /**
  * Lädt die Banhöfe in kürzeln je nach ausgewählter linie
@@ -96,8 +73,8 @@ function chooseTrack(x) {
  * Lädt anhand der Daten die Erforderliche Sichtweite
  */
 function calcView() {
-    time = document.getElementById('CTSelector').value
     let gradient = lineData[track]
+    console.log(group, gradient, time,track)
     let viewCode = group + gradient + time
     trackspeed = lineData['GES']
     let viewPointPosition = speed.indexOf(Number(trackspeed))
@@ -154,6 +131,34 @@ function loadUndergroundLine(lineNames) {
         const element = lineNames[i];
         document.getElementById('station').innerHTML += `<p onclick="stationChoosed('${lineNames[i]}')">${lineNames[i]}</p>`
     }
+}
+
+
+function chooseGroup(gr) {
+    console.log('Gruppe:', group)
+    if (gr == 'AG') {
+        group = 'AG'
+        document.getElementById('groupChoosen').innerText = `Arbeitsgruppe`
+        document.getElementById('timeChoose').innerHTML = `
+        <p onclick="timeChoosed(10)">10s</p>
+        <p onclick="timeChoosed(20)">20s</p>`
+    }
+    else if (gr == 'KG') {
+        group = 'KG'
+        document.getElementById('groupChoosen').innerText = `Kleingruppe`
+        document.getElementById('timeChoose').innerHTML = `
+        <p onclick="timeChoosed(7)">7s</p>
+        <p onclick="timeChoosed(10)">10s</p>
+        <p onclick="timeChoosed(15)">15s</p>
+        <p onclick="timeChoosed(20)">20s</p>
+        `
+    }
+}
+
+
+function timeChoosed(seconds) {
+    time = seconds
+    document.getElementById('chooseTime').innerText = `Räumzeit: ${seconds}sekunden`
 }
 
 

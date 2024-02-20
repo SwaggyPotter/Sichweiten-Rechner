@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="dropdown">
-            <button id="chooseTime" onclick="openDropDownTime()" class="dropbtn">Gruppe wählen</button>
+            <button id="chooseTime" onclick="openDropDownTime()" class="dropbtn">Räumzeit wählen</button>
             <div id="timeChoose" class="dropdown-content">
                 <p onclick="timeChoosed(7)">7s</p>
                 <p onclick="timeChoosed(10)">10s</p>
@@ -54,13 +54,6 @@
                 <p onclick="timeChoosed(20)">20s</p>
             </div>
         </div>
-        <select name="clearTimeSelector" id="CTSelector">
-            <option value="0">Räumzeit wählen</option>
-            <option value="7">7s</option>
-            <option value="10">10s</option>
-            <option value="15">15s</option>
-            <option value="20">20s</option>
-        </select>
         <button onclick="calcView()">Berechnen</button>
     </div>
     <h4 id="viewPoint"></h4>
