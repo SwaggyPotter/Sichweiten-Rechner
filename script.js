@@ -11,6 +11,17 @@ let group
 let time
 let track
 let stationBtn = document.getElementById('stationDropdownBtn')
+let movableSpeedBar = document.getElementById('speedRange')
+
+
+movableSpeedBar.addEventListener('click', ()=>{
+    
+})
+
+
+movableSpeedBar.addEventListener('touchend', ()=>{
+    
+})
 
 /**
  * Lädt die Banhöfe in kürzeln je nach ausgewählter linie
