@@ -1,5 +1,14 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
 .calcContainer {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .highline {
@@ -7,6 +16,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: yellow;
+    margin: 0;
+    margin-bottom: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#calcButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    background-color: #3498DB;
+    height: 50px;
+    color: white;
+}
+
+
+#calcButton:hover{
+    background-color: #2980B9;
+}
+
+#calcButton:active{
+    background-color: #0be016;
 }
 
 datalist {
@@ -40,6 +73,8 @@ input[type="range"] {
     font-size: 16px;
     border: none;
     cursor: pointer;
+    min-width: 300px;
+    margin-bottom: 10px;
 }
 
 /* Dropdown button on hover & focus */

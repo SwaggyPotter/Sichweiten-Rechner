@@ -11,21 +11,22 @@
 
 <body>
     <h1 class="highline">Sichweitenermittler</h1>
-    <div class="dropdown">
-        <button id="lineDropDownBtn" onclick="openDropDownLine()" class="dropbtn">Linie Auswählen</button>
-        <div id="lineChoose" class="dropdown-content">
-            <p onclick="chooseLine('U1')">U1</p>
-            <p onclick="chooseLine('U2')">U2</p>
-            <p onclick="chooseLine('U3')">U3</p>
-            <p onclick="chooseLine('U4')">U4</p>
-            <p onclick="chooseLine('U5')">U5</p>
-            <p onclick="chooseLine('U6')">U6</p>
-            <p onclick="chooseLine('U7')">U7</p>
-            <p onclick="chooseLine('U8')">U8</p>
-            <p onclick="chooseLine('U9')">U9</p>
-        </div>
-    </div>
+
     <div id="calcContainer" class="calcContainer">
+        <div class="dropdown">
+            <button id="lineDropDownBtn" onclick="openDropDownLine()" class="dropbtn">Linie Auswählen</button>
+            <div id="lineChoose" class="dropdown-content">
+                <p onclick="chooseLine('U1')">U1</p>
+                <p onclick="chooseLine('U2')">U2</p>
+                <p onclick="chooseLine('U3')">U3</p>
+                <p onclick="chooseLine('U4')">U4</p>
+                <p onclick="chooseLine('U5')">U5</p>
+                <p onclick="chooseLine('U6')">U6</p>
+                <p onclick="chooseLine('U7')">U7</p>
+                <p onclick="chooseLine('U8')">U8</p>
+                <p onclick="chooseLine('U9')">U9</p>
+            </div>
+        </div>
         <div class="dropdown">
             <button id="stationDropdownBtn" onclick="openDropDownStation()" class="dropbtn">Stationen</button>
             <div id="station" class="dropdown-content">
@@ -54,7 +55,7 @@
                 <p onclick="timeChoosed(20)">20s</p>
             </div>
         </div>
-        <button onclick="calcView()">Berechnen</button>
+        <p id="calcButton" onclick="calcView()">Berechnen</button>
     </div>
     <h4 id="viewPoint"></h4>
     <div id="speedContainer" class="speedContainer">

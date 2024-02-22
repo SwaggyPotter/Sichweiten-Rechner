@@ -74,14 +74,40 @@ function chooseTrack(x) {
  */
 function calcView() {
     let gradient = lineData[track]
-    console.log(group, gradient, time,track)
+    console.log(group, gradient, time, track)
     let viewCode = group + gradient + time
     trackspeed = lineData['GES']
     let viewPointPosition = speed.indexOf(Number(trackspeed))
     let view = views[viewCode][viewPointPosition]
     document.getElementById('viewPoint').innerText = `Die erforderliche Sichtweite beträgt: ${view}m`
     document.getElementById('speedContainer').style.display = 'flex'
+    setSpeedRange()
+}
+
+
+/**
+ * Setzt die Value von dem Tempo auf das normale streckentempo
+ */
+function setSpeedRange() {
     setableSpeed = document.getElementById('speedRange')
+    if (trackspeed == 70) {
+        setableSpeed.value = 100
+    }
+    if (trackspeed == 60) {
+        setableSpeed.value = 84
+    }
+    if (trackspeed == 50) {
+        setableSpeed.value = 68
+    }
+    if (trackspeed == 40) {
+        setableSpeed.value = 52
+    }
+    if (trackspeed == 25) {
+        setableSpeed.value = 36
+    }
+    if (trackspeed == 15) {
+        setableSpeed.value = 16
+    }
 }
 
 let choosedUndergroundLine
