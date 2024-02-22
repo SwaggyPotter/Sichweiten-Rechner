@@ -11,6 +11,16 @@ body{
     align-items: center;
 }
 
+.dropDownItem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemContainer{
+    width: 300px;
+}
+
 .highline {
     width: 100%;
     display: flex;

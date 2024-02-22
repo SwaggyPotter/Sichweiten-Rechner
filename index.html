@@ -15,40 +15,40 @@
     <div id="calcContainer" class="calcContainer">
         <div class="dropdown">
             <button id="lineDropDownBtn" onclick="openDropDownLine()" class="dropbtn">Linie Auswählen</button>
-            <div id="lineChoose" class="dropdown-content">
-                <p onclick="chooseLine('U1')">U1</p>
-                <p onclick="chooseLine('U2')">U2</p>
-                <p onclick="chooseLine('U3')">U3</p>
-                <p onclick="chooseLine('U4')">U4</p>
-                <p onclick="chooseLine('U5')">U5</p>
-                <p onclick="chooseLine('U6')">U6</p>
-                <p onclick="chooseLine('U7')">U7</p>
-                <p onclick="chooseLine('U8')">U8</p>
-                <p onclick="chooseLine('U9')">U9</p>
+            <div id="lineChoose" class="dropdown-content itemContainer">
+                <p class="dropDownItem" onclick="chooseLine('U1')">U1</p>
+                <p class="dropDownItem" onclick="chooseLine('U2')">U2</p>
+                <p class="dropDownItem" onclick="chooseLine('U3')">U3</p>
+                <p class="dropDownItem" onclick="chooseLine('U4')">U4</p>
+                <p class="dropDownItem" onclick="chooseLine('U5')">U5</p>
+                <p class="dropDownItem" onclick="chooseLine('U6')">U6</p>
+                <p class="dropDownItem" onclick="chooseLine('U7')">U7</p>
+                <p class="dropDownItem" onclick="chooseLine('U8')">U8</p>
+                <p class="dropDownItem" onclick="chooseLine('U9')">U9</p>
             </div>
         </div>
         <div class="dropdown">
             <button id="stationDropdownBtn" onclick="openDropDownStation()" class="dropbtn">Stationen</button>
-            <div id="station" class="dropdown-content">
+            <div id="station" class="dropdown-content itemContainer">
             </div>
         </div>
         <div class="dropdown">
             <button id="trackBTN" onclick="openDropDownTrack()" class="dropbtn">Gleis wählen</button>
-            <div id="track" class="dropdown-content">
-                <p onclick="chooseTrack(`GL1`)">Gleis 1</p>
-                <p onclick="chooseTrack(`GL2`)">Gleis 2</p>
+            <div id="track" class="dropdown-content itemContainer">
+                <p class="dropDownItem"  onclick="chooseTrack(`GL1`)">Gleis 1</p>
+                <p class="dropDownItem"  onclick="chooseTrack(`GL2`)">Gleis 2</p>
             </div>
         </div>
         <div class="dropdown">
             <button id="groupChoosen" onclick="openDropDownGroup()" class="dropbtn">Gruppe wählen</button>
-            <div id="group" class="dropdown-content">
-                <p onclick="chooseGroup(`KG`)">Kleingruppe</p>
-                <p onclick="chooseGroup(`AG`)">Arbeitsgruppe</p>
+            <div id="group" class="dropdown-content itemContainer">
+                <p class="dropDownItem" onclick="chooseGroup(`KG`)">Kleingruppe</p>
+                <p class="dropDownItem" onclick="chooseGroup(`AG`)">Arbeitsgruppe</p>
             </div>
         </div>
         <div class="dropdown">
             <button id="chooseTime" onclick="openDropDownTime()" class="dropbtn">Räumzeit wählen</button>
-            <div id="timeChoose" class="dropdown-content">
+            <div id="timeChoose" class="dropdown-content itemContainer">
                 <p onclick="timeChoosed(7)">7s</p>
                 <p onclick="timeChoosed(10)">10s</p>
                 <p onclick="timeChoosed(15)">15s</p>

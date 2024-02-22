@@ -7,8 +7,11 @@ let lineData
 let groupSelector = document.getElementById('GrpSelector')
 let setableSpeed = document.getElementById('speedRange')
 let lineDropDownBtn = document.getElementById('lineDropDownBtn')
-
+let group
+let time
+let track
 let stationBtn = document.getElementById('stationDropdownBtn')
+
 /**
  * Lädt die Banhöfe in kürzeln je nach ausgewählter linie
  */
@@ -43,10 +46,6 @@ function stationChoosed(station) {
         lineData = u9[station]
     }
 }
-
-let group
-let time
-let track
 
 
 function chooseGroup(chGroup) {
@@ -110,6 +109,7 @@ function setSpeedRange() {
     }
 }
 
+
 let choosedUndergroundLine
 /**
  * Lädt die Bahnhof namen auf der Strecke
@@ -155,7 +155,7 @@ function loadUndergroundLine(lineNames) {
     document.getElementById('station').innerHTML = ''
     for (let i = 0; i < lineNames.length; i++) {
         const element = lineNames[i];
-        document.getElementById('station').innerHTML += `<p onclick="stationChoosed('${lineNames[i]}')">${lineNames[i]}</p>`
+        document.getElementById('station').innerHTML += `<p class="dropDownItem"  onclick="stationChoosed('${lineNames[i]}')">${lineNames[i]}</p>`
     }
 }
 
@@ -166,17 +166,17 @@ function chooseGroup(gr) {
         group = 'AG'
         document.getElementById('groupChoosen').innerText = `Arbeitsgruppe`
         document.getElementById('timeChoose').innerHTML = `
-        <p onclick="timeChoosed(10)">10s</p>
-        <p onclick="timeChoosed(20)">20s</p>`
+        <p class="dropDownItem"  onclick="timeChoosed(10)">10s</p>
+        <p class="dropDownItem"  onclick="timeChoosed(20)">20s</p>`
     }
     else if (gr == 'KG') {
         group = 'KG'
         document.getElementById('groupChoosen').innerText = `Kleingruppe`
         document.getElementById('timeChoose').innerHTML = `
-        <p onclick="timeChoosed(7)">7s</p>
-        <p onclick="timeChoosed(10)">10s</p>
-        <p onclick="timeChoosed(15)">15s</p>
-        <p onclick="timeChoosed(20)">20s</p>
+        <p class="dropDownItem" onclick="timeChoosed(7)">7s</p>
+        <p class="dropDownItem" onclick="timeChoosed(10)">10s</p>
+        <p class="dropDownItem" onclick="timeChoosed(15)">15s</p>
+        <p class="dropDownItem" onclick="timeChoosed(20)">20s</p>
         `
     }
 }
