@@ -11,7 +11,17 @@ let group
 let time
 let track
 let stationBtn = document.getElementById('stationDropdownBtn')
-let choosedUndergroundLine
+let movableSpeedBar = document.getElementById('speedRange')
+
+
+movableSpeedBar.addEventListener('click', ()=>{
+    
+})
+
+
+movableSpeedBar.addEventListener('touchend', ()=>{
+    
+})
 
 /**
  * Lädt die Banhöfe in kürzeln je nach ausgewählter linie
@@ -84,16 +94,44 @@ function chooseTrack(x) {
  */
 function calcView() {
     let gradient = lineData[track]
+    console.log(group, gradient, time, track)
     let viewCode = group + gradient + time
     trackspeed = lineData['GES']
     let viewPointPosition = speed.indexOf(Number(trackspeed))
     let view = views[viewCode][viewPointPosition]
     document.getElementById('viewPoint').innerText = `Die erforderliche Sichtweite beträgt: ${view}m`
     document.getElementById('speedContainer').style.display = 'flex'
-    setableSpeed = document.getElementById('speedRange')
+    setSpeedRange()
 }
 
 
+/**
+ * Setzt die Value von dem Tempo auf das normale streckentempo
+ */
+function setSpeedRange() {
+    setableSpeed = document.getElementById('speedRange')
+    if (trackspeed == 70) {
+        setableSpeed.value = 100
+    }
+    if (trackspeed == 60) {
+        setableSpeed.value = 84
+    }
+    if (trackspeed == 50) {
+        setableSpeed.value = 68
+    }
+    if (trackspeed == 40) {
+        setableSpeed.value = 52
+    }
+    if (trackspeed == 25) {
+        setableSpeed.value = 36
+    }
+    if (trackspeed == 15) {
+        setableSpeed.value = 16
+    }
+}
+
+
+let choosedUndergroundLine
 /**
  * Lädt die Bahnhofnamen auf der Strecke
  */
@@ -138,7 +176,7 @@ function loadUndergroundLine(lineNames) {
     document.getElementById('station').innerHTML = ''
     for (let i = 0; i < lineNames.length; i++) {
         const element = lineNames[i];
-        document.getElementById('station').innerHTML += `<p onclick="stationChoosed('${lineNames[i]}')">${lineNames[i]}</p>`
+        document.getElementById('station').innerHTML += `<p class="dropDownItem"  onclick="stationChoosed('${lineNames[i]}')">${lineNames[i]}</p>`
     }
 }
 
@@ -152,17 +190,17 @@ function chooseGroup(gr) {
         group = 'AG'
         document.getElementById('groupChoosen').innerText = `Arbeitsgruppe`
         document.getElementById('timeChoose').innerHTML = `
-        <p onclick="timeChoosed(10)">10s</p>
-        <p onclick="timeChoosed(20)">20s</p>`
+        <p class="dropDownItem"  onclick="timeChoosed(10)">10s</p>
+        <p class="dropDownItem"  onclick="timeChoosed(20)">20s</p>`
     }
     else if (gr == 'KG') {
         group = 'KG'
         document.getElementById('groupChoosen').innerText = `Kleingruppe`
         document.getElementById('timeChoose').innerHTML = `
-        <p onclick="timeChoosed(7)">7s</p>
-        <p onclick="timeChoosed(10)">10s</p>
-        <p onclick="timeChoosed(15)">15s</p>
-        <p onclick="timeChoosed(20)">20s</p>
+        <p class="dropDownItem" onclick="timeChoosed(7)">7s</p>
+        <p class="dropDownItem" onclick="timeChoosed(10)">10s</p>
+        <p class="dropDownItem" onclick="timeChoosed(15)">15s</p>
+        <p class="dropDownItem" onclick="timeChoosed(20)">20s</p>
         `
     }
 }
