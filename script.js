@@ -7,13 +7,16 @@ let lineData
 let groupSelector = document.getElementById('GrpSelector')
 let setableSpeed = document.getElementById('speedRange')
 let lineDropDownBtn = document.getElementById('lineDropDownBtn')
-
+let group
+let time
+let track
 let stationBtn = document.getElementById('stationDropdownBtn')
+let choosedUndergroundLine
+
 /**
  * Lädt die Banhöfe in kürzeln je nach ausgewählter linie
  */
 function stationChoosed(station) {
-    console.log(choosedUndergroundLine, station)
     stationBtn.innerText = station
     if (choosedUndergroundLine == 'U1') {
         lineData = u1[station]
@@ -44,11 +47,12 @@ function stationChoosed(station) {
     }
 }
 
-let group
-let time
-let track
 
-
+/**
+ * Ändert den Text der Gruppenauswahl. Die Variable mit der Gruppenart wird ein Wert mit 
+ * KG(Kleingruppe) oder AG(Arbeitsgruppe) zugewiesen.
+ * @param {string} chGroup Gruppenart (Klein-, oder Arbeitsgruppe)
+ */
 function chooseGroup(chGroup) {
     if (chGroup == "KG") {
         document.getElementById('groupChoosen').innerText = "Kleingruppe"
@@ -60,6 +64,10 @@ function chooseGroup(chGroup) {
 }
 
 
+/**
+ * Ändert das ausgewählte Gleis zu Gleis eins oder zwei
+ * @param {string} x Das ausgewählte Gleis als String
+ */
 function chooseTrack(x) {
     if (x == "GL1") {
         document.getElementById('trackBTN').innerText = "Gleis 1"
@@ -69,12 +77,13 @@ function chooseTrack(x) {
     }
     track = x
 }
+
+
 /**
  * Lädt anhand der Daten die Erforderliche Sichtweite
  */
 function calcView() {
     let gradient = lineData[track]
-    console.log(group, gradient, time,track)
     let viewCode = group + gradient + time
     trackspeed = lineData['GES']
     let viewPointPosition = speed.indexOf(Number(trackspeed))
@@ -84,9 +93,9 @@ function calcView() {
     setableSpeed = document.getElementById('speedRange')
 }
 
-let choosedUndergroundLine
+
 /**
- * Lädt die Bahnhof namen auf der Strecke
+ * Lädt die Bahnhofnamen auf der Strecke
  */
 function chooseLine(line) {
     lineDropDownBtn.innerText = line
@@ -134,8 +143,11 @@ function loadUndergroundLine(lineNames) {
 }
 
 
+/**
+ * Ändert die Räumzeiten basierend auf der Gruppe.
+ * @param {string} gr Gruppenart (Klein-, Arbeitsgruppe)
+ */
 function chooseGroup(gr) {
-    console.log('Gruppe:', group)
     if (gr == 'AG') {
         group = 'AG'
         document.getElementById('groupChoosen').innerText = `Arbeitsgruppe`
@@ -155,7 +167,10 @@ function chooseGroup(gr) {
     }
 }
 
-
+/**
+ * Funktion zum ändern der Räumzeit
+ * @param {number} seconds
+ */
 function timeChoosed(seconds) {
     time = seconds
     document.getElementById('chooseTime').innerText = `Räumzeit: ${seconds}sekunden`
@@ -169,25 +184,42 @@ function openDropDownLine() {
 }
 
 
+/**
+ * Zum öffnen der verschiedenen Dropdown Menüs
+ */
 function openDropDownStation() {
     document.getElementById("station").classList.toggle("show");
 }
 
 
+/**
+ * Zum öffnen der verschiedenen Dropdown Menüs
+ */
 function openDropDownTrack() {
     document.getElementById("track").classList.toggle("show");
 }
 
 
+/**
+ * Zum öffnen der verschiedenen Dropdown Menüs
+ */
 function openDropDownGroup() {
     document.getElementById("group").classList.toggle("show");
 }
 
+
+/**
+ * Zum öffnen der verschiedenen Dropdown Menüs
+ */
 function openDropDownTime() {
     document.getElementById("timeChoose").classList.toggle("show");
 }
 
-// Close the dropdown menu if the user clicks outside of it
+
+/**
+ * Überprüft ob außerhalb des Dropdown menüs geklickt wurde um es zu schließen
+ * @param {eventlistener} event 
+ */
 window.onclick = function (event) {
     if (!event.target.matches('.dropbtn')) {
         let dropdowns = document.getElementsByClassName("dropdown-content");
