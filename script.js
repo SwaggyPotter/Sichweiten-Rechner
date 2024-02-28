@@ -143,11 +143,15 @@ function calcView() {
     let viewPointPosition = speed.indexOf(Number(trackspeed))
     let view = views[viewCode][viewPointPosition]
     document.getElementById('viewPoint').innerText = `Die erforderliche Sichtweite beträgt: ${view}m`
+    document.getElementById('resetBTNContainer').innerHTML = `<p id="resetBTN" onclick="reset()">zurücksetzen</p>`
     document.getElementById('speedContainer').style.display = 'flex'
     setSpeedRange()
 }
 
 
+/**
+ * Berechnet die neue Sichtweite durch bewegen des Reglers
+ */
 function calcNewView() {
     let gradient = lineData[track]
     let viewCode = group + gradient + time
@@ -258,6 +262,7 @@ function chooseGroup(gr) {
     }
 }
 
+
 /**
  * Funktion zum ändern der Räumzeit
  * @param {number} seconds
@@ -268,8 +273,9 @@ function timeChoosed(seconds) {
 }
 
 
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
+/**
+ * Zum öffnen der verschiedenen Dropdown Menüs
+ */
 function openDropDownLine() {
     document.getElementById("lineChoose").classList.toggle("show");
 }
@@ -322,4 +328,12 @@ window.onclick = function (event) {
             }
         }
     }
+}
+
+
+/**
+ * Zum zurücksetzen des Sichweitenermittlers
+ */
+function reset() {
+    
 }

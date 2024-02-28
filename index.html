@@ -9,7 +9,7 @@
     <title>Sichweitenermittler</title>
 </head>
 
-<body>
+<body id="body">
     <h1 class="highline">Sichweitenermittler</h1>
 
     <div id="calcContainer" class="calcContainer">
@@ -35,8 +35,8 @@
         <div class="dropdown">
             <button id="trackBTN" onclick="openDropDownTrack()" class="dropbtn">Gleis wählen</button>
             <div id="track" class="dropdown-content itemContainer">
-                <p class="dropDownItem"  onclick="chooseTrack(`GL1`)">Gleis 1</p>
-                <p class="dropDownItem"  onclick="chooseTrack(`GL2`)">Gleis 2</p>
+                <p class="dropDownItem" onclick="chooseTrack(`GL1`)">Gleis 1</p>
+                <p class="dropDownItem" onclick="chooseTrack(`GL2`)">Gleis 2</p>
             </div>
         </div>
         <div class="dropdown">
@@ -71,6 +71,8 @@
                 <option value="0" label="0"></option>
             </datalist>
         </div>
+    </div>
+    <div id="resetBTNContainer">
     </div>
 </body>
 <script src="data.js"></script>
