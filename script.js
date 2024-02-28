@@ -12,16 +12,60 @@ let time
 let track
 let stationBtn = document.getElementById('stationDropdownBtn')
 let movableSpeedBar = document.getElementById('speedRange')
+let choosedUndergroundLine
 
 
-movableSpeedBar.addEventListener('click', ()=>{
-    
+/**
+ * Eventlistener für den Regler für das Tempo (Click Event)
+ */
+movableSpeedBar.addEventListener('click', () => {
+    changeValueToSpeed(movableSpeedBar.value)
 })
 
 
-movableSpeedBar.addEventListener('touchend', ()=>{
-    
+/**
+ * Eventlistener für den Regler für das Tempo (Touch Event)
+ */
+movableSpeedBar.addEventListener('touchend', () => {
+    changeValueToSpeed(movableSpeedBar.value)
 })
+
+
+/**
+ * Basierend auf der ausgewählten Prozentzahl beim Regler wird das entsprechende Tempo gewählt
+ * und die Sichtweite neu errechnet
+ * @param {number} percent 
+ */
+function changeValueToSpeed(percent) {
+    if (percent == 100) {
+        trackspeed = '70'
+        calcNewView()
+    }
+    if (percent == 84) {
+        trackspeed = '60'
+        calcNewView()
+    }
+    if (percent == 68) {
+        trackspeed = '50'
+        calcNewView()
+    }
+    if (percent == 52) {
+        trackspeed = '40'
+        calcNewView()
+    }
+    if (percent == 36) {
+        trackspeed = '25'
+        calcNewView()
+    }
+    if (percent == 16) {
+        trackspeed = '15'
+        calcNewView()
+    }
+    if (percent == 0) {
+        document.getElementById('viewPoint').innerText = `Gleis gesperrt`
+    }
+}
+
 
 /**
  * Lädt die Banhöfe in kürzeln je nach ausgewählter linie
@@ -94,9 +138,19 @@ function chooseTrack(x) {
  */
 function calcView() {
     let gradient = lineData[track]
-    console.log(group, gradient, time, track)
     let viewCode = group + gradient + time
     trackspeed = lineData['GES']
+    let viewPointPosition = speed.indexOf(Number(trackspeed))
+    let view = views[viewCode][viewPointPosition]
+    document.getElementById('viewPoint').innerText = `Die erforderliche Sichtweite beträgt: ${view}m`
+    document.getElementById('speedContainer').style.display = 'flex'
+    setSpeedRange()
+}
+
+
+function calcNewView() {
+    let gradient = lineData[track]
+    let viewCode = group + gradient + time
     let viewPointPosition = speed.indexOf(Number(trackspeed))
     let view = views[viewCode][viewPointPosition]
     document.getElementById('viewPoint').innerText = `Die erforderliche Sichtweite beträgt: ${view}m`
@@ -131,7 +185,6 @@ function setSpeedRange() {
 }
 
 
-let choosedUndergroundLine
 /**
  * Lädt die Bahnhofnamen auf der Strecke
  */
