@@ -142,6 +142,7 @@ function calcView() {
     trackspeed = lineData['GES']
     let viewPointPosition = speed.indexOf(Number(trackspeed))
     let view = views[viewCode][viewPointPosition]
+    console.log(views)
     document.getElementById('viewPoint').innerText = `Die erforderliche Sichtweite beträgt: ${view}m`
     document.getElementById('resetBTNContainer').innerHTML = `<p id="resetBTN" onclick="reset()">zurücksetzen</p>`
     document.getElementById('speedContainer').style.display = 'flex'
@@ -335,5 +336,5 @@ window.onclick = function (event) {
  * Zum zurücksetzen des Sichweitenermittlers
  */
 function reset() {
-    
+
 }
